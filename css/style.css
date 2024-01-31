@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+    /* overflow: auto; */
+}
+
+.navbar {
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+}
+.navbar-menu{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navbar-left {
+    display: flex;
+}
+
+.navbar-left li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0 12px;
+}
+
+.navbar-right {
+    display: flex;
+}
+
+.navbar-right li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0 12px
+}
+/* game check */  
+.game-check{
+    height: 30px;
+    
+}  
+.game-check output{
+    /* border: 2px solid red; */
+    text-align: center; 
+    display: flex;
+    justify-content: center; 
+}
+/* Game container css start */
+.game-container {
+    display: flex;
+    width: 80vw;
+    margin: auto;
+
+}
+
+.game-boxes {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(9, 40px);
+    justify-content: center;
+    margin-top: 50px;
+    box-sizing: border-box;
+    width: 50%;
+    border-collapse: collapse;
+
+}
+
+.game-box {
+    border: 1px solid rgb(10, 24, 9);
+    background-color: rgb(251, 254, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-collapse: initial; */
+
+}
+
+
+
+/* game-keys css start */
+
+
+.game-right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.game-keys {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+}
+
+.game-key {
+    border: 2px solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(197, 197, 255, 0.896);
+    border-radius: 6px;
+}
+
+.game-key:hover {
+    background-color: rgb(197, 197, 255);
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.reset-btn {
+    margin-top: 12px;
+    border-radius: 6px;
+    width: 240px;
+    height: 40px;
+    background-color: #5a7ac0df;
+    color: white;
+    border-color: rgb(210, 196, 223);
+}
+
+.reset-btn:hover {
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(47, 0, 76);
+}

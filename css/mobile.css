@@ -1,0 +1,51 @@
+@media screen and (max-width:968px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        font-size: 14px; 
+        height: 70px;   
+    }
+    .navbar-menu{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-right li {
+        margin: 2px 6px;
+    }
+
+    .game-container {
+        width: 100vw;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-right-section {
+        margin: 12px;
+    }
+    .game-check{
+        height: 30px;
+        font-size: 17px;
+    }
+
+    .game-boxes {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(9, 30px);
+        grid-template-rows: repeat(9, 30px);
+    }
+
+    .game-keys {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 50px);
+        grid-template-rows: repeat(3, 50px);
+        justify-content: center;
+
+    }
+    .reset-btn {
+        width: 180px;
+        height: 30px;
+    }
+
+}

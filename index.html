@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudoku.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Fira+Sans:wght@300&family=Lora:ital@1&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+    <link rel="stylesheet" href="css/utility.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <h1 style="color: #344861">Sudoku.com</h1>
+      <div class="navbar-menu">
+        <div class="navbar-left">
+          <li style="color: #6e7e90">Classic</li>
+          <li style="color: #6e7e90">Killer</li>
+        </div>
+        <div class="navbar-right">
+          <li style="color: #6e7e90">Daily challenge</li>
+          <li style="color: #6e7e90">Award</li>
+          <li style="color: #6e7e90">Rules</li>
+          <li style="color: #6e7e90">More</li>
+        </div>
+      </div>
+      
+    </nav>
+    <hr />
+    <div class="game-check">
+      <output><h3>Start Playing.....</h3></output>
+    </div>
+    <hr />
+    <div class="game-container">
+      <div class="game-boxes">
+        <div class="game-box br-r" onclick="lightsup(0,0)"></div>
+        <div
+          class="game-box br-r"
+          onclick="lightsup(0,1)"
+          oninput="isloose(0,1)"
+        ></div>
+        <div class="game-box" onclick="lightsup(0,2)"></div>
+        <div class="game-box br-r" onclick="lightsup(0,3)"></div>
+        <div class="game-box br-r" onclick="lightsup(0,4)"></div>
+        <div class="game-box" onclick="lightsup(0,5)"></div>
+        <div class="game-box br-r" onclick="lightsup(0,6)"></div>
+        <div class="game-box br-r" onclick="lightsup(0,7)"></div>
+        <div class="game-box" onclick="lightsup(0,8)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(1,0)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(1,1)"></div>
+        <div class="game-box br-u" onclick="lightsup(1,2)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(1,3)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(1,4)"></div>
+        <div class="game-box br-u" onclick="lightsup(1,5)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(1,6)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(1,7)"></div>
+        <div class="game-box br-u" onclick="lightsup(1,8)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(2,0)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(2,1)"></div>
+        <div class="game-box br-u" onclick="lightsup(2,2)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(2,3)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(2,4)"></div>
+        <div class="game-box br-u" onclick="lightsup(2,5)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(2,6)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(2,7)"></div>
+        <div class="game-box br-u" onclick="lightsup(2,8)"></div>
+        <div class="game-box br-r" onclick="lightsup(3,0)"></div>
+        <div class="game-box br-r" onclick="lightsup(3,1)"></div>
+        <div class="game-box" onclick="lightsup(3,2)"></div>
+        <div class="game-box br-r" onclick="lightsup(3,3)"></div>
+        <div class="game-box br-r" onclick="lightsup(3,4)"></div>
+        <div class="game-box" onclick="lightsup(3,5)"></div>
+        <div class="game-box br-r" onclick="lightsup(3,6)"></div>
+        <div class="game-box br-r" onclick="lightsup(3,7)"></div>
+        <div class="game-box" onclick="lightsup(3,8)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(4,0)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(4,1)"></div>
+        <div class="game-box br-u" onclick="lightsup(4,2)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(4,3)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(4,4)"></div>
+        <div class="game-box br-u" onclick="lightsup(4,5)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(4,6)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(4,7)"></div>
+        <div class="game-box br-u" onclick="lightsup(4,8)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(5,0)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(5,1)"></div>
+        <div class="game-box br-u" onclick="lightsup(5,2)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(5,3)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(5,4)"></div>
+        <div class="game-box br-u" onclick="lightsup(5,5)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(5,6)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(5,7)"></div>
+        <div class="game-box br-u" onclick="lightsup(5,8)"></div>
+        <div class="game-box br-r" onclick="lightsup(6,0)"></div>
+        <div class="game-box br-r" onclick="lightsup(6,1)"></div>
+        <div class="game-box" onclick="lightsup(6,2)"></div>
+        <div class="game-box br-r" onclick="lightsup(6,3)"></div>
+        <div class="game-box br-r" onclick="lightsup(6,4)"></div>
+        <div class="game-box" onclick="lightsup(6,5)"></div>
+        <div class="game-box br-r" onclick="lightsup(6,6)"></div>
+        <div class="game-box br-r" onclick="lightsup(6,7)"></div>
+        <div class="game-box" onclick="lightsup(6,8)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(7,0)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(7,1)"></div>
+        <div class="game-box br-u" onclick="lightsup(7,2)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(7,3)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(7,4)"></div>
+        <div class="game-box br-u" onclick="lightsup(7,5)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(7,6)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(7,7)"></div>
+        <div class="game-box br-u" onclick="lightsup(7,8)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(8,0)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(8,1)"></div>
+        <div class="game-box br-u" onclick="lightsup(8,2)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(8,3)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(8,4)"></div>
+        <div class="game-box br-u" onclick="lightsup(8,5)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(8,6)"></div>
+        <div class="game-box br-r br-u" onclick="lightsup(8,7)"></div>
+        <div class="game-box br-u" onclick="lightsup(8,8)"></div>
+      </div>
+
+      <div class="game-right-section">
+        <div class="game-keys">
+          <div class="game-key" onclick="fill_number(1)">1</div>
+          <div class="game-key" onclick="fill_number(2)">2</div>
+          <div class="game-key" onclick="fill_number(3)">3</div>
+          <div class="game-key" onclick="fill_number(4)">4</div>
+          <div class="game-key" onclick="fill_number(5)">5</div>
+          <div class="game-key" onclick="fill_number(6)">6</div>
+          <div class="game-key" onclick="fill_number(7)">7</div>
+          <div class="game-key" onclick="fill_number(8)">8</div>
+          <div class="game-key" onclick="fill_number(9)">9</div>
+        </div>
+        <div class="game-reset" id="newGameButton">
+          <button class="reset-btn">New Game</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin: 22px"></div>
+    <hr />
+    <div style="margin-top: 21px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);"></div>
+    <h3 style="text-align: center; color: rgb(14, 103, 255); ">
+      -By Preetam Sahu
+    </h3>
+    <div style="margin-top: 21px"></div>
+    <hr />
+    <div style="margin-top: 21px"></div>
+
+    <script src="js/script.js"></script>
+    <script src="js/values.js"></script>
+    <script src="js/problem generator.js"></script>ri
+  </body>
+</html>
