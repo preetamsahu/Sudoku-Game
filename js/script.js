@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function game() {
         s=changegame(s)
-        console.log(s)
+        // console.log(s)
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
                 if (prevalue[s][i][j] == "") {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // game()
     function startNewGame() {
         clean(); // Clean the game board
-        console.log("calling game")
+        // console.log("calling game")
         game(); // Start the game
     }
     const newGameButton = document.getElementById("newGameButton");
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 function lightsup(x, y) {
-    console.log(x, y, typeof x)
+    // console.log(x, y, typeof x)
     isselected = true
     boxnumber = x * 9 + y;
     let boxvalue = game_box[x * 9 + y].innerHTML;
@@ -145,7 +145,7 @@ function isloose(r, c) {
             // console.log(i * 9 + j)
         }
     }
-    console.log("3*3 box", temp3, Math.max(...temp3))
+    // console.log("3*3 box", temp3, Math.max(...temp3))
 
     if (Math.max(...temp3) > 1) {
         return true;
