@@ -98,7 +98,7 @@ function fill_number(n) {
         }
     }
     else {
-        alert("koi box select toh kar lawde")
+        alert("You have not selected any box")
     }
 }
 
