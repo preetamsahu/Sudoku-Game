@@ -5,7 +5,7 @@ var color2 = "rgb(213, 221, 255)" // selected box color
 var color3 = "rgb(76 0 255 / 39%)" //selected value
 var isselected = false;
 var iswinner = false
-var boxnumber = -1;
+var boxnumber = 0;
 var s = -1
 // console.log(isprevalue)
 
@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let p = 0;
 
     function game() {
-        s=changegame(s)
-        // console.log(s)
+        s = changegame(s)
+        console.log(s)
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
                 if (prevalue[s][i][j] == "") {
@@ -25,9 +25,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (isprevalue[s][i][j] == true) {
                     game_box[i * 9 + j].style.color = "rgb(0 3 144)";
                 }
+                else {
+                    game_box[i * 9 + j].style.color = "black";
+                }
                 game_box[i * 9 + j].innerHTML = prevalue[s][i][j];
             }
         }
+        var timer_label = document.getElementsByClassName("game-timer")[0];
+        var current_time = new Date()
+        var d = new Date();
+        var curr = current_time.getSeconds()
+        setInterval(() => {
+            var d = new Date()
+            timer_label.innerHTML = `${d.getMinutes() - current_time.getMinutes()} : ${d.getSeconds()} `
+        }, 1000);
     }
     function clean() {
         for (let i = 0; i < 9; i++) {
@@ -39,24 +50,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // game()
     function startNewGame() {
         clean(); // Clean the game board
-        // console.log("calling game")
+        console.log("calling game")
         game(); // Start the game
     }
     const newGameButton = document.getElementById("newGameButton");
     newGameButton.addEventListener("click", startNewGame);
 
     function changegame(s) {
-        return (s+1)%4
+        return (s + 1) % 4
     }
-    
-    
+
+
 });
 function lightsup(x, y) {
-    // console.log(x, y, typeof x)
+    console.log(x, y, typeof x)
     isselected = true
     boxnumber = x * 9 + y;
     let boxvalue = game_box[x * 9 + y].innerHTML;
     for (let i = 0; i < 81; i++) {
+        if (i == (x * 9 + y)) {
+            game_box[i].backgroundColor = "gray"
+        }
         if (x == parseInt(i / 9) || y == i % 9) {
             game_box[i].style.backgroundColor = color2;
         }
@@ -96,9 +110,10 @@ function fill_number(n) {
             }
 
         }
+        lightsup(parseInt(boxnumber / 9), boxnumber % 9)
     }
     else {
-        alert("You have not selected any box")
+        alert("koi box select toh kar lawde")
     }
 }
 
@@ -141,17 +156,18 @@ function isloose(r, c) {
     let temp3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            temp3[game_box[(r1 + i) * 9 + j].innerHTML] += 1
+            console.log("3*3 box", r1 + i, c1 + j, Math.max(...temp3))
+            temp3[game_box[(r1 + i) * 9 + c1 + j].innerHTML] += 1
             // console.log(i * 9 + j)
         }
     }
-    // console.log("3*3 box", temp3, Math.max(...temp3))
+    console.log("3*3 box", temp3, Math.max(...temp3))
 
     if (Math.max(...temp3) > 1) {
         return true;
     }
 
-    return false
+    return false;
 
 }
 function check_win() {
@@ -166,3 +182,36 @@ function check_win() {
     iswinner = true;
 }
 
+// key board functions are handled
+function up() {
+    lightsup(Math.max(0, parseInt(boxnumber / 9) - 1), boxnumber % 9)
+}
+function down() {
+    lightsup(Math.min(8, parseInt(boxnumber / 9) + 1), boxnumber % 9)
+}
+function left() {
+    lightsup(parseInt(boxnumber / 9), Math.max(boxnumber % 9 - 1, 0))
+}
+function right() {
+    lightsup(parseInt(boxnumber / 9), Math.min(boxnumber % 9 + 1, 8))
+}
+
+document.addEventListener("keydown", function (event) {
+    if (event.key == 1 || event.key == 2 || event.key == 3 || event.key == 4 || event.key == 5 || event.key == 6 || event.key == 7 || event.key == 8 || event.key == 9) {
+        fill_number(event.key)
+    }
+    console.log(event.key)//ArrowUp ArrowLeft ArrowRight ArrowDown
+    console.log(boxnumber)
+    if (event.key == "ArrowUp") {
+        up()
+    }
+    if (event.key == "ArrowLeft") {
+        left()
+    }
+    if (event.key == "ArrowRight") {
+        right()
+    }
+    if (event.key == "ArrowDown") {
+        down()
+    }
+})
